@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/welcome_navigation"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.infinty8.brochilltask.ui.fragments.WelcomeFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_signUpFragments"
+            app:destination="@id/signUpFragments" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.infinty8.brochilltask.ui.fragments.LoginFragment"
+        android:label="Login Screen"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/signUpFragments"
+        android:name="com.infinty8.brochilltask.ui.fragments.SignUpFragments"
+        android:label="SignUp"
+        tools:layout="@layout/fragment_sign_up_fragment" />
+</navigation>
