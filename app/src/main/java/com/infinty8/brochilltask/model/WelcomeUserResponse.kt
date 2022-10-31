@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
  * @author Ved Prakash
  * @created 10/29/2022
  */
-data class WelcomeUserResponse (
+data class WelcomeUserResponse(
 
-    @SerializedName("message") val message : String
+    @SerializedName("message") val message: String,
 )

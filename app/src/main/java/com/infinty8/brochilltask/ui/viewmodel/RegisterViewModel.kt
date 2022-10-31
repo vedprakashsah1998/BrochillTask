@@ -15,13 +15,19 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
-    private val signupRepository: RegisterRepo
+    private val signupRepository: RegisterRepo,
 ) : ViewModel() {
     fun signUp(registerPostBody: RegisterPostBody) = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
             val data = signupRepository.registerUser(registerPostBody)
-            emit(Resource.success(data = data))
+            if (data.code() == 400) {
+                emit(Resource.error(data = null, message = "All fields are required"))
+            } else if (data.code() == 409) {
+                emit(Resource.error(data = null, message = "User Already Exist. Please Login"))
+            } else {
+                emit(Resource.success(data = data))
+            }
         } catch (exception: Exception) {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
         }

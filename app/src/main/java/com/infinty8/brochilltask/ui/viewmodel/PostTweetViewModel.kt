@@ -21,7 +21,11 @@ class PostTweetViewModel @Inject constructor(
         emit(Resource.loading(data = null))
         try {
             val data = postTweetRepo.postTweetData(appToken, postTweetModel)
-            emit(Resource.success(data = data))
+            if (data.code() == 400) {
+                emit(Resource.error(data = null, message = "Tweet is required"))
+            } else {
+                emit(Resource.success(data = data))
+            }
         } catch (exception: Exception) {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
         }

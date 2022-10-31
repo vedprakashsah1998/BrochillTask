@@ -7,14 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import com.google.android.material.snackbar.Snackbar
-import com.infinty8.brochilltask.BuildConfig
 import com.infinty8.brochilltask.R
 import com.infinty8.brochilltask.api.Status
 import com.infinty8.brochilltask.databinding.FragmentWelcomeBinding
 import com.infinty8.brochilltask.storage.AppPref
 import com.infinty8.brochilltask.storage.PrefConstant
-import com.infinty8.brochilltask.ui.viewmodel.RegisterViewModel
 import com.infinty8.brochilltask.ui.viewmodel.WelcomeViewModel
 import com.infinty8.brochilltask.utils.SnackbarUtils
 import dagger.hilt.android.AndroidEntryPoint

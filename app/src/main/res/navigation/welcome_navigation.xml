@@ -9,7 +9,7 @@
         android:id="@+id/welcomeFragment"
         android:name="com.infinty8.brochilltask.ui.fragments.WelcomeFragment"
         android:label="Welcome"
-        tools:layout="@layout/fragment_welcome" >
+        tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcomeFragment_to_loginFragment"
             app:destination="@id/loginFragment" />

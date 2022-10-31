@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.google.android.material.snackbar.Snackbar
 import com.infinty8.brochilltask.api.Status
 import com.infinty8.brochilltask.databinding.FragmentSignUpFragmentBinding
 import com.infinty8.brochilltask.model.RegisterPostBody
@@ -53,6 +52,7 @@ class SignUpFragments : Fragment() {
                 binding.progressBarBase.progressBar.visibility = View.GONE
                 appPref.setValue(PrefConstant.appTokenKey, it.data?.body()?.token.toString())
                 startActivity(Intent(requireContext(), HomeScreen::class.java))
+                requireActivity().finish()
             }
             Status.ERROR -> {
                 binding.progressBarBase.progressBar.visibility = View.GONE

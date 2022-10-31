@@ -1,9 +1,7 @@
 package com.infinty8.brochilltask.remote.repository
 
 import com.infinty8.brochilltask.model.LoginPostModel
-import com.infinty8.brochilltask.model.RegisterPostBody
 import com.infinty8.brochilltask.remote.datasource.LoginDataSource
-import com.infinty8.brochilltask.remote.datasource.RegisterDataSource
 import javax.inject.Inject
 
 /**

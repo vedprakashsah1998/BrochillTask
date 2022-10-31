@@ -1,7 +1,5 @@
 package com.infinty8.brochilltask.api
 
-import okio.IOException
-
 /**
  * @author NetworkResult
  * @created 10/29/2022

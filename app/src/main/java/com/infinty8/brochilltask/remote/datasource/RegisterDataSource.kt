@@ -9,7 +9,7 @@ import javax.inject.Inject
  * @created 10/29/2022
  */
 class RegisterDataSource @Inject constructor(
-    private val service: RetroService
+    private val service: RetroService,
 ) {
     suspend fun registerUser(registerPostBody: RegisterPostBody) =
         service.registerCall(registerPostBody)

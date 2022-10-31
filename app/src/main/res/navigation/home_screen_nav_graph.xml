@@ -9,7 +9,7 @@
         android:id="@+id/tweetList"
         android:name="com.infinty8.brochilltask.ui.fragments.TweetList"
         android:label="Home Screen"
-        tools:layout="@layout/fragment_tweet_list" >
+        tools:layout="@layout/fragment_tweet_list">
         <action
             android:id="@+id/action_tweetList_to_postTweet"
             app:destination="@id/postTweet" />
@@ -18,7 +18,7 @@
         android:id="@+id/postTweet"
         android:name="com.infinty8.brochilltask.ui.fragments.PostTweet"
         android:label="New Tweet"
-        tools:layout="@layout/fragment_post_tweet" >
+        tools:layout="@layout/fragment_post_tweet">
         <action
             android:id="@+id/action_postTweet_to_tweetList"
             app:destination="@id/tweetList" />

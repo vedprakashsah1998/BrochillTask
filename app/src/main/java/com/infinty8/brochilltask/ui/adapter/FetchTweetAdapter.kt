@@ -27,6 +27,7 @@ class FetchTweetAdapter(val context: Context) :
             oldItem == newItem
 
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FetchTweetAdapterHolder =
         FetchTweetAdapterHolder(
             TweetItemBinding.inflate(

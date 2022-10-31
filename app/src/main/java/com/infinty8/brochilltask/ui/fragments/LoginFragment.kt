@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.google.android.material.snackbar.Snackbar
 import com.infinty8.brochilltask.api.Status
 import com.infinty8.brochilltask.databinding.FragmentLoginBinding
 import com.infinty8.brochilltask.model.LoginPostModel
@@ -45,14 +44,14 @@ class LoginFragment : Fragment() {
         viewModel.login(LoginPostModel(email, password)).observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.SUCCESS -> {
-                    Log.d("statusCode:","codeRes: SUCCESS"+it.message)
+                    Log.d("statusCode:", "codeRes: SUCCESS" + it.message)
                     binding.progressBarBase.progressBar.visibility = View.GONE
                     appPref.setValue(PrefConstant.appTokenKey, it.data?.body()?.token.toString())
                     startActivity(Intent(requireContext(), HomeScreen::class.java))
-
+                    requireActivity().finish()
                 }
                 Status.ERROR -> {
-                    Log.d("statusCode:","codeRes: ERROR"+it.message)
+                    Log.d("statusCode:", "codeRes: ERROR" + it.message)
 
                     binding.progressBarBase.progressBar.visibility = View.GONE
                     SnackbarUtils.showMessage(binding.root, it.message.toString())

@@ -9,7 +9,7 @@ import javax.inject.Inject
  * @created 10/29/2022
  */
 class RegisterRepo @Inject constructor(
-    private val registerDataSource: RegisterDataSource
+    private val registerDataSource: RegisterDataSource,
 ) {
     suspend fun registerUser(registerPostBody: RegisterPostBody) =
         registerDataSource.registerUser(registerPostBody)

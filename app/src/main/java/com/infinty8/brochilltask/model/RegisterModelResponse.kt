@@ -7,5 +7,5 @@ data class RegisterModelResponse(
     @SerializedName("last_name") val last_name: String,
     @SerializedName("_id") val id: String,
     @SerializedName("email") val email: String,
-    @SerializedName("token") val token: String
+    @SerializedName("token") val token: String,
 )

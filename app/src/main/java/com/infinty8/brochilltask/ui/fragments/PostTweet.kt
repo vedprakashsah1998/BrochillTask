@@ -41,29 +41,26 @@ class PostTweet : Fragment() {
         return binding.root
     }
 
-    private fun postTweet(view: View) {
-        val response =
-            viewModel.postTweet(appPref.getValue(PrefConstant.appTokenKey, "").toString(),
-                PostTweetModel(binding.outlinedEditTextAddTweet.text.toString()))
-
-        response.observe(viewLifecycleOwner) {
-            when (it.status) {
-                Status.SUCCESS -> {
-                    binding.progressBarBase.progressBar.visibility = View.GONE
-                    view.findNavController().navigate(R.id.action_postTweet_to_tweetList)
-
-                }
-                Status.ERROR -> {
-                    binding.progressBarBase.progressBar.visibility = View.GONE
-                    SnackbarUtils.showMessage(binding.root, it.message.toString())
-                }
-                Status.LOADING -> {
-                    binding.progressBarBase.progressBar.visibility = View.VISIBLE
+    private fun postTweet(view: View) =
+        viewModel.postTweet(appPref.getValue(PrefConstant.appTokenKey, "").toString(),
+            PostTweetModel(binding.outlinedEditTextAddTweet.text.toString()))
+            .observe(viewLifecycleOwner) {
+                when (it.status) {
+                    Status.SUCCESS -> {
+                        binding.progressBarBase.progressBar.visibility = View.GONE
+                        view.findNavController().apply {
+                            navigate(R.id.action_postTweet_to_tweetList)
+                            backQueue.clear()
+                        }
+                    }
+                    Status.ERROR -> {
+                        binding.progressBarBase.progressBar.visibility = View.GONE
+                        SnackbarUtils.showMessage(binding.root, it.message.toString())
+                    }
+                    Status.LOADING -> {
+                        binding.progressBarBase.progressBar.visibility = View.VISIBLE
+                    }
                 }
             }
-        }
-
-
-    }
 
 }

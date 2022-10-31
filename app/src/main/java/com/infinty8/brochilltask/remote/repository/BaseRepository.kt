@@ -18,7 +18,7 @@ open class BaseRepository {
 
     private suspend fun <T : Any> newsApiOutput(
         call: suspend () -> Response<T>,
-        error: String
+        error: String,
     ): Output<T> {
         val response = call.invoke()
         if (response.isSuccessful) {
